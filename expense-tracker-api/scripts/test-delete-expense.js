@@ -1,16 +1,20 @@
-const token = process.argv[2];
 
-if (!token) {
-  console.error("Please provide a JWT token.");
+const token = process.argv[2];
+const expenseId = process.argv[3];
+
+if (!token || !expenseId) {
+  console.error(
+    "Usage: node scripts/test-delete-expense.js <token> <expenseId>"
+  );
   process.exit(1);
 }
 
-async function testGetExpenses() {
+async function testDeleteExpense() {
   try {
     const response = await fetch(
-      "http://localhost:3000/api/expenses",
+      `http://localhost:3000/api/expenses/${expenseId}`,
       {
-        method: "GET",
+        method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -27,4 +31,4 @@ async function testGetExpenses() {
   }
 }
 
-testGetExpenses();
+testDeleteExpense();

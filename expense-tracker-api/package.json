@@ -7,7 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test:login": "node scripts/test-login.js"
+    "test:login": "node scripts/test-login.js",
+    "test:get-expenses": "node scripts/test-get-expenses.js",
+    "test:create-expense": "node scripts/test-create-expense.js",
+    "test:update-expense": "node scripts/test-update-expense.js",
+    "test:delete-expense": "node scripts/test-delete-expense.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
